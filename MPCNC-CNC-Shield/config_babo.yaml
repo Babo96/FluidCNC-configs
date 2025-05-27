@@ -1,0 +1,58 @@
+name: "MPCnC Babo V1"
+board: "Protoneer CNC Shield V3.00"
+
+kinematics:
+  cartesian:
+
+stepping:
+  engine: RMT
+  idle_ms: 250
+  dir_delay_us: 1
+  pulse_us: 2
+  disable_delay_us: 0
+
+axes:
+  shared_stepper_disable_pin: gpio.16:high
+  
+  x:
+    steps_per_mm: 50
+    max_rate_mm_per_min: 6000
+    acceleration_mm_per_sec2: 200
+    max_travel_mm: 800
+    homing:
+      cycle: 1
+      mpos_mm: 10
+      positive_direction: false
+    
+    motor0:
+      limit_neg_pin: gpio.4:low:pu
+      stepstick:
+        direction_pin: gpio.18
+        step_pin: gpio.22
+
+  y:
+    steps_per_mm: 50
+    max_rate_mm_per_min: 6000
+    acceleration_mm_per_sec2: 200
+    max_travel_mm: 600
+    homing:
+      cycle: 1
+      mpos_mm: 10
+      positive_direction: false
+
+    motor0:
+      limit_neg_pin: gpio.13:low:pu
+      stepstick:
+        direction_pin: gpio.5
+        step_pin: gpio.21
+
+  z:
+    steps_per_mm: 800
+    max_rate_mm_per_min: 100
+    acceleration_mm_per_sec2: 10
+    max_travel_mm: 100
+    motor0:
+      stepstick:
+        direction_pin: gpio.17
+        step_pin: gpio.19
+

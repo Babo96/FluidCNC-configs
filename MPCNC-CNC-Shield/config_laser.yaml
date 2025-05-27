@@ -1,0 +1,87 @@
+name: "Cutt3r Ghetto Controller V1"
+board: "Cutt3r Ghetto Controller V1"
+
+kinematics:
+  corexy:
+
+stepping:
+  engine: RMT
+  idle_ms: 250
+  dir_delay_us: 1
+  pulse_us: 2
+  disable_delay_us: 0
+
+axes:
+  shared_stepper_disable_pin: gpio.12:low
+  
+  x:
+    steps_per_mm: 100
+    max_rate_mm_per_min: 6000
+    acceleration_mm_per_sec2: 200
+    max_travel_mm: 900
+    homing:
+      cycle: 2
+      mpos_mm: 10
+      positive_direction: false
+    
+    motor0:
+      limit_all_pin: gpio.39:low:pu
+      stepstick:
+        direction_pin: gpio.16
+        step_pin: gpio.26
+
+  y:
+    steps_per_mm: 100
+    max_rate_mm_per_min: 6000
+    acceleration_mm_per_sec2: 200
+    max_travel_mm: 900
+    homing:
+      cycle: 2
+      mpos_mm: 10
+      positive_direction: false
+
+    motor0:
+      limit_all_pin: gpio.4:low:pu
+      stepstick:
+        direction_pin: gpio.27
+        step_pin: gpio.25
+
+  z:
+    steps_per_mm: 800
+    max_rate_mm_per_min: 2000
+    acceleration_mm_per_sec2: 25
+    max_travel_mm: 1000
+    homing:
+      cycle: 1
+      mpos_mm: 10
+      positive_direction: true
+
+    motor0:
+      limit_all_pin: gpio.35:low:pu
+      stepstick:
+        direction_pin: gpio.14
+        step_pin: gpio.17
+
+
+spi:
+  miso_pin: gpio.19
+  mosi_pin: gpio.23
+  sck_pin: gpio.18
+
+sdcard:
+  cs_pin: gpio.5
+  card_detect_pin: NO_PIN
+
+coolant:
+  flood_pin: gpio.36
+  mist_pin:  gpio.34
+
+Laser:
+  pwm_freq: 5000
+  output_pin: gpio.32
+  enable_pin: gpio.33
+  direction_pin: NO_PIN
+  disable_with_s0: false
+  s0_with_disable: true
+  tool: 100
+  speed_map: 0=0.000% 1000=100.000%
