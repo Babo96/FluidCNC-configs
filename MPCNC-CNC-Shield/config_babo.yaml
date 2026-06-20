@@ -18,8 +18,7 @@ axes:
     steps_per_mm: 50
     max_rate_mm_per_min: 6000
     acceleration_mm_per_sec2: 200
-    max_travel_mm: 780
-    pulloff_mm: 3
+    max_travel_mm: 765
     soft_limits: true
     homing:
       allow_single_axis: true
@@ -27,8 +26,8 @@ axes:
       mpos_mm: 0
       seek_mm_per_min: 500
       positive_direction: false
-    
     motor0:
+      pulloff_mm: 3
       limit_neg_pin: gpio.4:low:pu
       hard_limits: true
       stepstick:
@@ -39,17 +38,16 @@ axes:
     steps_per_mm: 50
     max_rate_mm_per_min: 6000
     acceleration_mm_per_sec2: 200
-    max_travel_mm: 530
+    max_travel_mm: 570
     soft_limits: true
-    pulloff_mm: 3
     homing:
       allow_single_axis: true
       cycle: 2
       mpos_mm: 0
       seek_mm_per_min: 500
       positive_direction: false
-
     motor0:
+      pulloff_mm: 3
       limit_neg_pin: gpio.12:low:pu
       hard_limits: true
       stepstick:
@@ -60,9 +58,12 @@ axes:
     steps_per_mm: 100
     max_rate_mm_per_min: 100
     acceleration_mm_per_sec2: 10
-    max_travel_mm: 100
+    max_travel_mm: 135
+    soft_limits: true
     motor0:
       stepstick:
         direction_pin: gpio.17
         step_pin: gpio.19
 
+probe:
+  pin: gpio.13:low:pu
